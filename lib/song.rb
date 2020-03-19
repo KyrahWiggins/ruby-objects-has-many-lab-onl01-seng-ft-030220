@@ -19,3 +19,4 @@ class Song
     # self.artist.name if self.artist != nil
     artist.name if artist
   end
+end
