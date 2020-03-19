@@ -1,23 +1,41 @@
+# require "pry"
 class Artist
-  attr_accessor :name
+
+  attr_accessor :name 
+  attr_reader :songs
+
+  # @@song_count = []
 
   def initialize(name)
-    @songs = []
     @name = name
+    @songs = []
   end
 
+  # def songs
+  #   @songs
+  #   # add_song_by_name(song_name)
+  # end
+
+  # def songs
+  #   Song.all
+  # end
+
   def songs
-    @songs
+    Song.all.select {|song| song.artist == self}
   end
 
   def add_song(song)
-    @songs << song
+    @songs << songs
     song.artist = self
   end
 
-  def genres                        #=> This is how the other two
-    self.songs.collect do |song|    #=> classes talk to each other
-      song.genre
-    end
+  def add_song_by_name(song_name)
+    song = Song.new(song_name)
+    add_song(song)
   end
+
+  def self.song_count
+      Song.all.length
+  end
+
 end
