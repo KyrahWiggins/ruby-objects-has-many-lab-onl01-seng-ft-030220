@@ -16,3 +16,4 @@ class Post
     # self.artist.name if self.artist != nil
     self.author.name if self.author != nil
   end
+end
